@@ -1,6 +1,12 @@
 package test
 
 
-fun main(){
-    println("hello world")
+fun main(args: Array<String>){
+    println("-------------------------------")
+    add(1,2)
+}
+
+
+fun add(a: Int, b: Int){
+    print(a + b)
 }
