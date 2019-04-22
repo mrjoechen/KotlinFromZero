@@ -16,6 +16,15 @@ fun main(args: Array<String>){
 //    b = "hello"
     println(b)
 
+    val aByte: Byte = Byte.MAX_VALUE
+    val bByte: Byte = Byte.MIN_VALUE
+
+    println("aInt:"+aByte)
+    println("bInt:"+bByte)
+
+    val aInt = 0b1100
+    println(aInt)
+
 }
 
 
