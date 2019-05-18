@@ -1,7 +1,7 @@
 package test
 
 
-fun main(args: Array<String>){
+fun main(){
     println("-------------------------------")
     add(1,2)
 
@@ -25,9 +25,14 @@ fun main(args: Array<String>){
     val aInt = 0b1100
     println(aInt)
 
+
+    print(User(1, "chenqiao"))
 }
 
 
 fun add(a: Int, b: Int){
     println(a + b)
 }
+
+
+data class User(val id: Int, val name: String)
