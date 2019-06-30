@@ -25,7 +25,6 @@ fun main(){
     val aInt = 0b1100
     println(aInt)
 
-
     print(User(1, "chenqiao"))
 }
 
