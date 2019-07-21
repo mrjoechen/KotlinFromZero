@@ -4,4 +4,4 @@
 *.iml
 .idea/*
 out/*
-*/out/*
+./*/out/*
