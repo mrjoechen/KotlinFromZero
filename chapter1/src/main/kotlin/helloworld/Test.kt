@@ -75,6 +75,9 @@ fun main(args: Array<String>){
     val arg2:Int = 2
     println("" + arg1 + " + " +arg2 +" = " + (arg1 + arg2))
     println("$arg1 + $arg2 = ${arg1+arg2}")//简洁
+
+
+    println("$b1, $b2")
 }
 
 
@@ -95,3 +98,18 @@ val aLong: Long = anInttt.toLong()
 
 val string: String = "hello"
 val fromChar: String = String(charArrayOf('h','e','l','l','o'))
+
+//val aString:String = null
+val aString:String?=null
+var a:Int? = aString?.length
+
+
+val intRange1: IntRange = 1..100
+val intRange2: IntRange = 1 until 100
+val b1 = 100 in intRange1
+val b2 = 100 in intRange2
+
+
+val arrayOfInt: IntArray = intArrayOf(1, 3, 5)
+val arrayOfChar: CharArray = charArrayOf('h', 'e', 'l', 'l', 'o')
+val arrayOfString: Array<String> = arrayOf("aaa", "bbb")
