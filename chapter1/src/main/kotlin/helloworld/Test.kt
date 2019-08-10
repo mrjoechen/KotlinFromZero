@@ -76,8 +76,21 @@ fun main(args: Array<String>){
     println("" + arg1 + " + " +arg2 +" = " + (arg1 + arg2))
     println("$arg1 + $arg2 = ${arg1+arg2}")//简洁
 
-
     println("$b1, $b2")
+
+    val rawString: String = """
+        
+        dfsv
+        sdfvd
+        \n
+        \r
+        
+    """
+
+    println(rawString)
+
+    println(rawString.length)
+
 }
 
 
