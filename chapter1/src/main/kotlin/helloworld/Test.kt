@@ -91,6 +91,12 @@ fun main(args: Array<String>){
 
     println(rawString.length)
 
+    for (i in intRange2){
+        print("$i,")
+    }
+
+    println(arrayOfChar.joinToString(""))
+
 }
 
 
@@ -117,11 +123,10 @@ val aString:String?=null
 var a:Int? = aString?.length
 
 
-val intRange1: IntRange = 1..100
-val intRange2: IntRange = 1 until 100
+val intRange1: IntRange = 1..100 // [1, 100]
+val intRange2: IntRange = 1 until 100 // [1, 100)
 val b1 = 100 in intRange1
 val b2 = 100 in intRange2
-
 
 val arrayOfInt: IntArray = intArrayOf(1, 3, 5)
 val arrayOfChar: CharArray = charArrayOf('h', 'e', 'l', 'l', 'o')

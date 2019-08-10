@@ -30,5 +30,6 @@ class shuaige constructor(temper: String, apper: String, voice: String): ren(tem
 
 fun main(){
     val 妹纸 = meizhi("温柔", "甜美", "动人")
+    println(妹纸 is ren)
 }
 
