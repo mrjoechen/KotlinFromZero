@@ -1,3 +1,4 @@
+import java.lang.Exception
 import java.lang.IllegalArgumentException
 import java.lang.UnsupportedOperationException
 
@@ -32,6 +33,8 @@ fun main(args: Array<String>) {
             println("运算符错误！")
         }catch (e:IllegalArgumentException){
             println("算式格式异常！")
+        }catch (e: Exception){
+            println("${e.message}")
         }
 
 
@@ -44,6 +47,8 @@ fun main(args: Array<String>) {
         }
 
     }
+
+    println("Thanks!")
 
 
 }
