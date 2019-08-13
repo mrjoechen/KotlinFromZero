@@ -17,8 +17,6 @@ fun main() {
     println(name3!!.length)
 
 
-
-
     val parent: Parent = Child()
 
     if (parent is Child)
