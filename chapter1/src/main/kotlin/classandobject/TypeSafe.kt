@@ -28,9 +28,7 @@ fun main() {
     if (string is String)
         println(string?.length)
 
-
     val parent1: Parent = Parent()
-
 
     //var child: Child = parent as Child
     var child: Child? = parent as? Child //转换失败返回null
