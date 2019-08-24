@@ -22,7 +22,6 @@ fun main() {
     if (parent is Child)
         println(parent.name)
 
-
     val string: String? = "hello"
 
     if (string is String)
