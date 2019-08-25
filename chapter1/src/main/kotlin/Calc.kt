@@ -6,8 +6,6 @@ fun main(args: Array<String>) {
 
 
     while (true){
-
-
         try {
             println("请输入算式：ex 3 + 4")
 
@@ -37,26 +35,20 @@ fun main(args: Array<String>) {
             println("${e.message}")
         }
 
-
-
         println("继续？ [y] or [n]")
 
         val readLine1 = readLine()
         if (readLine1 == null || readLine1.toLowerCase() == "n" || readLine1.toLowerCase() != "y"){
             break
         }
-
     }
 
     println("Thanks!")
-
-
 }
 
 class Operator(val op: String){
 
     val opFun: (left: Double, right: Double) -> Double
-
 
     init {
         opFun = when(op){
