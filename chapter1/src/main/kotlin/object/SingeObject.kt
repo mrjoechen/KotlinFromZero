@@ -4,5 +4,5 @@ object SingeObject {
 
     val s = "hello"
 
-    fun printHello() = print(s)
+    fun printHello() = println(s)
 }
