@@ -7,23 +7,23 @@ object SingeObject {
     fun printHello() = println(s)
 }
 
-open class A{
-    open fun method(){
+open class A {
+    open fun method() {
 
     }
 }
 
-interface B{
+interface B {
     fun interfaceMethod()
 }
 
-abstract class C{
+abstract class C {
     abstract fun abstractMethod()
 }
 
-object D : A(), B{
+object D : A(), B {
 
-    override fun method(){
+    override fun method() {
 
     }
 
