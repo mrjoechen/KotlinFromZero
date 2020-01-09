@@ -22,13 +22,17 @@ open class ren constructor(var temper: String, var apper: String, var voice: Str
 }
 
 
-class meizhi constructor(temper: String, apper: String, voice: String): ren(temper, apper, voice)
+class meizhi constructor(temper: String, apper: String, voice: String): ren(temper, apper, voice){
+    init {
+        println("$temper $apper $voice")
+    }
+}
 
 
 class shuaige constructor(temper: String, apper: String, voice: String): ren(temper, apper, voice)
 
 
-fun main(){
+fun main(vararg aaa: String){
     val 妹纸 = meizhi("温柔", "甜美", "动人")
     println(妹纸 is ren)
 }

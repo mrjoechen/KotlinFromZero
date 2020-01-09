@@ -22,4 +22,9 @@ fun main() {
     //2, c
     //3, d
 
+
+    for (index in charArrayOf.withIndex()){
+        println("${index.index} -> ${index.value}")
+    }
+
 }

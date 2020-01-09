@@ -9,6 +9,8 @@ fun main() {
     println(fun3("hello"))//hello kotlin.Unit
 
     println(fun4(1, 1))
+    println(fun4.invoke(1, 1))
+
 
 
     fun5//
@@ -30,7 +32,7 @@ fun main() {
     println("-------------------------------")
 
     charArrayOf.forEach FOREACH@{
-        if (it == 'q') return@FOREACH//返回main
+        if (it == 'q') return@FOREACH//返回 foreach
             println(it)
     }
 

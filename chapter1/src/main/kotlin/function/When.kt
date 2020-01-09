@@ -21,6 +21,7 @@ fun main() {
         in 1..100 -> println("===")
         !in 100..1000 -> println("---")
         5 -> println("x = $x")
+        else -> println("-------")
     }
 
 

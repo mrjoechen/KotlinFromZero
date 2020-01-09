@@ -26,6 +26,12 @@ val minInt: Int = Int.MIN_VALUE
 
 
 /**
+ * val x = 2 运行时常量
+ * const val x = 2 编译期常量 编译时编译期已经知道 并替换 所有引用的常量值  等同于 java final
+ */
+
+
+/**
  * Char
  *  两个字节 表示一个16位的Unicode字符 单引号 'a' '我' '\u000f'
  *
@@ -64,6 +70,9 @@ fun main(args: Array<String>){
     println(1E3f)//1000.0
 
     println(0f/0f) //NaN 不是数
+
+
+    println(Double.POSITIVE_INFINITY)
 
 
 

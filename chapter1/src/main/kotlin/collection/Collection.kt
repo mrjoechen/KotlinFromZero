@@ -11,7 +11,8 @@ fun collection(){
 
     listOf.get(0)
 
-    listOf.toMutableList()
+    val toMutableList = listOf.toMutableList()
+    toMutableList.add("fff")
 
 
 //    listOf.add

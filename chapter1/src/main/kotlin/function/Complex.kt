@@ -27,7 +27,7 @@ class Complex(var real: Double, var imaginary: Double) {
 }
 
 
-fun main() {
+fun main(args: Array<String>) {
 
     val complex1 = Complex(1.0, 2.0)
     val complex2 = Complex(3.0, 4.0)
@@ -41,6 +41,10 @@ fun main() {
     println(complex2())//5.0
 
     if (Book() on Desk()){
+
+    }
+
+    if (".name" in args){
 
     }
 
