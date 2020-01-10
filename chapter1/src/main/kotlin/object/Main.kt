@@ -4,7 +4,7 @@ fun main(aaa: Array<String>) {
 
     SingeObject.printHello()
 
-    print(SingeObject.s)
+    println(SingeObject.s)
 
     D.method()
 

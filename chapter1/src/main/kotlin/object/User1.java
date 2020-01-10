@@ -1,12 +1,12 @@
 package object;
 
-public class User {
+public class User1 {
 
     {
         System.out.println("pre-print");
     }
 
-    public User(){
+    public User1(){
 
     }
 
