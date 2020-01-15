@@ -1,5 +1,7 @@
 package com.chenqiao.kotlin.oop
 
+import kotlin.properties.Delegates
+
 /**
  * @Classname Manager
  * @Description TODO
@@ -22,14 +24,14 @@ class SeniorManager(val driver: Driver, val writer: Writer): Driver by driver, W
 
 class CarDriver: Driver {
     override fun drive() {
-        print("CarDriver drive")
+        println("CarDriver drive")
     }
 
 }
 
 class PPTWriter: Writer {
     override fun write() {
-        print("PPTWriter write")
+        println("PPTWriter write")
     }
 
 }
@@ -45,4 +47,19 @@ interface Writer{
 
 fun main() {
     SeniorManager(writer = PPTWriter(), driver = CarDriver()).driver.drive()
+
+
+    val user = User()
+    user.name = "第一次赋值"
+    user.name = "第二次赋值"
+}
+
+
+
+
+class User {
+    var name: String by Delegates.observable("初始值") {
+        prop, old, new ->
+        println("$prop 旧值：$old -> 新值：$new")
+    }
 }
