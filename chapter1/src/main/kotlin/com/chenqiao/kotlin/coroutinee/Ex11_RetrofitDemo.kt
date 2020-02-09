@@ -35,7 +35,7 @@ interface GitHubServiceApi {
 data class User(val id: String, val name: String, val url: String)
 
 fun showUser(user: User) {
-    println(user)
+    log(user)
 }
 
 fun showError(t: Throwable) {
@@ -46,10 +46,10 @@ fun showError(t: Throwable) {
 fun main(args: Array<String>) = runBlocking {
 //    useCallback()
 //    wrappedInSuspendFunction()
-    useCoroutine()
+//    useCoroutine()
 //    useTraditionalForLoop()
 //    useExtensionForEach()
-//    timeCost()
+    timeCost()
 }
 
 fun useCallback() {
@@ -145,7 +145,8 @@ suspend fun timeCost(){
 
 inline fun <T> cost(block: ()-> T): T {
     val start = System.currentTimeMillis()
-    val result = block()
+    val result = block.invoke()
+//    val result = block()
     val cost = System.currentTimeMillis() - start
     log("Time Cost: ${cost}ms")
     return result

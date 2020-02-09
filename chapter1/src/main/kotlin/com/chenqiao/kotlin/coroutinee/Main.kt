@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
 //    firstCoroutine()
 //    test()
 
-//    launch { // 运行在父协程的上下文中，即 runBlocking 主协程
+//    launch { // 运行在父协程的上下文中，即 runcaBlocking 主协程
 //        log("main runBlocking      : I'm working in thread ${Thread.currentThread().name}")
 //    }
 //    launch(Dispatchers.Unconfined) { // 不受限的——将工作在主线程中
