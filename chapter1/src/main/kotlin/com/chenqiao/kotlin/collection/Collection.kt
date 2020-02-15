@@ -1,6 +1,12 @@
 package com.chenqiao.kotlin.collection
 
 import com.chenqiao.kotlin.log
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 
 fun collection(){
@@ -120,8 +126,41 @@ fun main(args: Array<String>) {
     seq.forEach {
         log(""+it)
     }
-    // print the sequence
+//     print the sequence
     println(seq.toList())
+
+
+
+    val singleDispatcher = newSingleThreadContext("Single")
+
+
+    runBlocking {
+        val job = GlobalScope.launch {
+            launch {
+                withContext(singleDispatcher) {
+                    repeat(3) {
+                        printSomeThingBlock("Task1")
+                        yield()
+                    }
+                }
+            }
+
+            launch {
+                withContext(singleDispatcher) {
+                    repeat(3) {
+                        printSomeThingBlock("Task2")
+                        yield()
+                    }
+                }
+            }
+        }
+
+        job.join()
+    }
 
 }
 
+suspend fun printSomeThingBlock(text: String) {
+    println(text)
+    Thread.sleep(1000)
+}

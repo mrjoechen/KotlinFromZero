@@ -11,6 +11,7 @@ fun main(args: Array<String>) = runBlocking(Dispatchers.Default) {
         delay(1000L)
         log(2)
     }
+
     log(-2)
     job.join()
     log(-3)
