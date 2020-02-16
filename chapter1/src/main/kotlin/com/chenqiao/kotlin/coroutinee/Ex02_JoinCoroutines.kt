@@ -1,12 +1,9 @@
 package com.chenqiao.kotlin.coroutinee
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 fun main(args: Array<String>) = runBlocking {
     log(1)
-    val job = GlobalScope.launch {
+    val job = launch(Dispatchers.IO) {
         log(-1)
         delay(1000L)
         log(-2)

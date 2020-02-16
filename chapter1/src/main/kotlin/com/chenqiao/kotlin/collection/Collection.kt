@@ -7,6 +7,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.*
+import java.lang.reflect.ParameterizedType
+import java.lang.reflect.Type
 
 
 fun collection(){
@@ -78,41 +80,40 @@ fun computeRunTime(action: (() -> Unit)?) {
 }
 
 fun main(args: Array<String>) {
-    computeRunTime {
-        (0..10000000)
-                .map { it + 1 }
-                .filter { it % 2 == 0 }
-                .count { it < 10 }
-                .run {
-                    println("by using list way, result is : $this")
-                }
-    }
-
-    computeRunTime {
-        (0..10000000)
-                .asSequence()
-                .map { it + 1 }
-                .filter { it % 2 == 0 }
-                .count { it < 10 }
-                .run {
-                    println("by using sequences way, result is : $this")
-                }
-    }
-
-    (0..6)
-            .asSequence()
-            .map {//map返回是Sequence<T>，故它属于中间操作
-                println("map: $it")
-                return@map it + 1
-            }
-            .filter {//filter返回是Sequence<T>，故它属于中间操作
-                println("filter: $it")
-                return@filter it % 2 == 0
-            }
-            .forEach {
-                println(it)
-            }
-
+//    computeRunTime {
+//        (0..10000000)
+//                .map { it + 1 }
+//                .filter { it % 2 == 0 }
+//                .count { it < 10 }
+//                .run {
+//                    println("by using list way, result is : $this")
+//                }
+//    }
+//
+//    computeRunTime {
+//        (0..10000000)
+//                .asSequence()
+//                .map { it + 1 }
+//                .filter { it % 2 == 0 }
+//                .count { it < 10 }
+//                .run {
+//                    println("by using sequences way, result is : $this")
+//                }
+//    }
+//
+//    (0..6)
+//            .asSequence()
+//            .map {//map返回是Sequence<T>，故它属于中间操作
+//                println("map: $it")
+//                return@map it + 1
+//            }
+//            .filter {//filter返回是Sequence<T>，故它属于中间操作
+//                println("filter: $it")
+//                return@filter it % 2 == 0
+//            }
+//            .forEach {
+//                println(it)
+//            }
 
     val seq = sequence {
         for (i in 1..5) {
@@ -121,15 +122,15 @@ fun main(args: Array<String>) {
         }
         // yield a range
         yieldAll(26..28)
+    }.run {
+        println(this)
     }
 
-    seq.forEach {
-        log(""+it)
-    }
-//     print the sequence
-    println(seq.toList())
-
-
+//    seq.forEach {
+//        log(""+it)
+//    }
+////     print the sequence
+//    println(seq.toList())
 
     val singleDispatcher = newSingleThreadContext("Single")
 
