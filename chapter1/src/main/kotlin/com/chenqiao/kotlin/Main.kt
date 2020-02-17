@@ -58,9 +58,32 @@ fun main() {
     }
 
 
+    testBlock1 {
+        this.age
+    }
+
+    testBlock2 {
+
+    }
+
+
 }
 
 fun findPerson(): Person?{
 
     return null
+}
+
+
+
+fun testBlock1(block: Person.() -> Unit){
+
+    val person = Person("", 1)
+//    block()
+    block(person)
+}
+
+fun testBlock2(block: () -> Unit){
+
+    block()
 }
