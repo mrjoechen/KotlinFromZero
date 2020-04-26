@@ -1,14 +1,15 @@
 package com.chenqiao.kotlin.coroutinee
 
 
+import com.chenqiao.kotlin.MD5Util
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.*
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
@@ -22,6 +23,22 @@ val gitHubServiceApi by lazy {
             .build()
 
     retrofit.create(GitHubServiceApi::class.java)
+}
+
+
+val npsServiceApi by lazy {
+    val retrofit = retrofit2.Retrofit.Builder()
+            .baseUrl("http://chenqiao.tech:8090")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .build()
+
+    retrofit.create(npsService::class.java)
+}
+
+interface npsService {
+    @POST("/client/list")
+    fun getList(@Query("auth_key") auth_key: String, @Query("timestamp") timestamp: String, @Query("start") start: String, @Query("limit") limit: String): Call<ResponseBody>
 }
 
 interface GitHubServiceApi {
@@ -47,6 +64,7 @@ fun main(args: Array<String>) = runBlocking {
 //    useCallback()
 //    wrappedInSuspendFunction()
     useCoroutine()
+    testNps()
 //    useTraditionalForLoop()
 //    useExtensionForEach()
 //    timeCost()
@@ -95,6 +113,7 @@ suspend fun useCoroutine() {
         } catch (e: Exception) {
             showError(e)
         }
+
     }.join()
 }
 
@@ -140,6 +159,34 @@ suspend fun timeCost(){
                         }
                     }
         }
+    }.join()
+}
+
+
+suspend fun testNps() {
+    GlobalScope.launch {
+        try {
+
+            val currentTimeMillis = System.currentTimeMillis()/1000
+            val auth = MD5Util.MD5("chenqiao" + currentTimeMillis)
+            npsServiceApi.getList(auth, ""+currentTimeMillis,""+0, ""+10).enqueue(object : Callback<ResponseBody> {
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+
+                }
+
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+
+                    log(response.body()!!.string())
+
+                }
+
+            })
+
+        } catch (e: Exception) {
+            showError(e)
+        }
+
+
     }.join()
 }
 
