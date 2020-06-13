@@ -59,13 +59,20 @@ fun main() {
 
 
     testBlock1 {
-        this.age
+        println(name)
+        println(it)
     }
 
     testBlock2 {
-
+        println(it)
     }
 
+    testBlock3 { a, b ->
+        println(a + b)
+    }
+
+
+    print(listOf<String>("aaaaaaaaaaaaaaaaa", "a").max())
 
 }
 
@@ -76,14 +83,19 @@ fun findPerson(): Person?{
 
 
 
-fun testBlock1(block: Person.() -> Unit){
+fun testBlock1(block: Person.(String) -> Unit){
 
-    val person = Person("", 1)
+    val person = Person("aaaaa", 1)
 //    block()
-    block(person)
+    block(person, "chenqiao1")
 }
 
-fun testBlock2(block: () -> Unit){
+fun testBlock2(block: (String) -> Unit){
 
-    block()
+    block("chenqiao2")
+}
+
+fun testBlock3(block: (String, String) -> Unit){
+
+    block("chenqiao2", "chenqiao3")
 }

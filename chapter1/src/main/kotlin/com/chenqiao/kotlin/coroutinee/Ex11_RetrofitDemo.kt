@@ -38,7 +38,13 @@ val npsServiceApi by lazy {
 
 interface npsService {
     @POST("/client/list")
-    fun getList(@Query("auth_key") auth_key: String, @Query("timestamp") timestamp: String, @Query("start") start: String, @Query("limit") limit: String): Call<ResponseBody>
+    fun getList(@Query("auth_key") auth_key: String, @Query("timestamp") timestamp: String,
+                @Query("start") start: String, @Query("limit") limit: String): Call<ResponseBody>
+
+
+    @POST("/client/list")
+    fun getInfoById(@Query("auth_key") auth_key: String, @Query("timestamp") timestamp: String,
+                @Query("start") start: String, @Query("limit") limit: String): Call<ResponseBody>
 }
 
 interface GitHubServiceApi {
