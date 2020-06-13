@@ -72,6 +72,12 @@ fun main() {
     }
 
 
+    val testBlock4 = testBlock4(3)
+    println(testBlock4())
+    println(testBlock4.invoke())
+    println(testBlock4.invoke())
+
+
     print(listOf<String>("aaaaaaaaaaaaaaaaa", "a").max())
 
 }
@@ -98,4 +104,13 @@ fun testBlock2(block: (String) -> Unit){
 fun testBlock3(block: (String, String) -> Unit){
 
     block("chenqiao2", "chenqiao3")
+}
+
+fun testBlock4(b: Int): () -> Int{
+
+    var a = 3
+    return fun(): Int{
+        a++
+        return a + b
+    }
 }
